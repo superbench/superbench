@@ -1,0 +1,39 @@
+{
+  "name": "superbench",
+  "version": "0.0.1",
+  "description": "\"A lightweight load testing framework for Node.js\"",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "bin": {
+    "superbench": "./bin/superbench"
+  },
+  "files": [
+    "lib",
+    "bin"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superbench/superbench.git"
+  },
+  "author": "Yusuke Watanabe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superbench/superbench/issues"
+  },
+  "homepage": "https://github.com/superbench/superbench#readme",
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/node": "^9.4.5",
+    "@types/ws": "^4.0.0",
+    "typescript": "^2.7.1",
+    "uuid": "^3.2.1"
+  },
+  "dependencies": {
+    "commander": "^2.14.1",
+    "ws": "^4.0.0"
+  }
+}

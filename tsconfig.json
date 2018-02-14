@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es2017"],
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "./lib",
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
