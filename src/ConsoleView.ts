@@ -73,10 +73,10 @@ export default class ConsoleView {
             padEnd(elapsedText, 10),
             padEnd(result.requests, 10),
             padEnd(result.rps, 10),
-            padEnd(result.avgMs + "ms", 10),
-            padEnd(result.minMs + "ms", 10),
-            padEnd(result.maxMs + "ms", 10),
-            padEnd(result.medianMs + "ms", 10),
+            padEnd(result.avgMs !== null ? result.avgMs + "ms" : "-", 10),
+            padEnd(result.minMs !== null ? result.minMs + "ms" : "-", 10),
+            padEnd(result.maxMs !== null ? result.maxMs + "ms" : "-", 10),
+            padEnd(result.medianMs !== null ? result.medianMs + "ms" : "-", 10),
             `${result.errorCount}(${result.errorRate})`
         ];
         console.log(line.join(""));
@@ -126,10 +126,10 @@ export default class ConsoleView {
             [padEnd("duration", 20), report.stats.total.durationMs + "ms"].join(""),
             [padEnd("requests", 20), report.stats.total.requests].join(""),
             [padEnd("rps", 20), report.stats.total.rps].join(""),
-            [padEnd("avg", 20), report.stats.total.avgMs + "ms"].join(""),
-            [padEnd("min", 20), report.stats.total.minMs + "ms"].join(""),
-            [padEnd("max", 20), report.stats.total.maxMs + "ms"].join(""),
-            [padEnd("median", 20), report.stats.total.medianMs + "ms"].join(""),
+            [padEnd("avg", 20), report.stats.total.avgMs !== null ? report.stats.total.avgMs + "ms" : "-"].join(""),
+            [padEnd("min", 20), report.stats.total.minMs !== null ? report.stats.total.minMs + "ms" : "-"].join(""),
+            [padEnd("max", 20), report.stats.total.maxMs !== null ? report.stats.total.maxMs + "ms" : "-"].join(""),
+            [padEnd("median", 20), report.stats.total.medianMs !== null ? report.stats.total.medianMs + "ms" : "-"].join(""),
             [padEnd("success(%)", 20), `${report.stats.total.successCount}(${report.stats.total.successRate})`].join(""),
             [padEnd("error(%)", 20), `${report.stats.total.errorCount}(${report.stats.total.errorRate})`].join("")].join("\n"));
     }
