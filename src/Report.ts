@@ -15,10 +15,10 @@ export interface BenchmarkInfo {
 export interface Result {
     requests: number;
     durationMs: number;
-    avgMs: number;
-    minMs: number;
-    maxMs: number;
-    medianMs: number;
+    avgMs: number|null;
+    minMs: number|null;
+    maxMs: number|null;
+    medianMs: number|null;
     rps: number;
     successCount: number;
     errorCount: number;
@@ -84,15 +84,15 @@ export class Aggregator {
         return {
             durationMs: duration,
             requests: results.length,
-            avgMs: parseFloat(MathUtils.average(d).toFixed(2)),
-            maxMs: parseFloat(MathUtils.max(d).toFixed(2)),
-            minMs: parseFloat(MathUtils.min(d).toFixed(2)),
-            medianMs: parseFloat(MathUtils.median(d).toFixed(2)),
+            avgMs: d.length ? parseFloat(MathUtils.average(d).toFixed(2)) : null,
+            maxMs: d.length ? parseFloat(MathUtils.max(d).toFixed(2)) : null,
+            minMs: d.length ? parseFloat(MathUtils.min(d).toFixed(2)) : null,
+            medianMs: d.length ? parseFloat(MathUtils.median(d).toFixed(2)) : null,
             rps,
             successCount,
             errorCount: errors.length,
-            successRate: parseFloat(((successCount / results.length) * 100).toFixed(2)),
-            errorRate: parseFloat(((errors.length / results.length) * 100).toFixed(2)),
+            successRate: results.length ? parseFloat(((successCount / results.length) * 100).toFixed(2)) : 0,
+            errorRate: results.length ? parseFloat(((errors.length / results.length) * 100).toFixed(2)) : 0,
             errors
         };
     }
