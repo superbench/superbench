@@ -1,6 +1,6 @@
 {
   "name": "superbench",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "\"A lightweight load testing framework for Node.js\"",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
